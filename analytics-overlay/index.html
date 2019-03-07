@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Stict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script src="../common/js/jquery-1.10.2.min.js"></script>
+
+  <!-- ResizeSensor lib -->
+  <script src="../common/js/ResizeSensor.js"></script>
+  <script src="../common/js/tool.js"></script>
+  <script src="../common/js/browser.js"></script>
+  <link rel="stylesheet" href="../common/css/main.css"/>
+  <link rel="stylesheet" href="../common/css/material-icons.css">
+  <script src="../common/voplayer.min.js"></script>
+  <script src="../common/assets/assets.js"></script>
+  <script src="../common/js/main.js"></script>
+  <script src="./js/main.js"></script>
+</head>
+<body>
+  <div class="player">
+    <div id="player-container" class="html5-video-player">
+      <div class="vop-tooltip">
+          <div class="vop-tooltip-bg"></div>
+          <div class="vop-tooltip-text-wrapper">
+            <span class="vop-tooltip-text">00:00</span>
+          </div>
+      </div>
+      <div class="vop-popup vop-settings-menu">
+        <div class="vop-panel">
+          <div class="vop-panel-menu"></div>
+        </div>
+      </div>
+      <div class="vop-gradient-bottom"></div>
+      <div class="vop-control-bar">
+        <div class="vop-progress-bar">
+          <div class="vop-progress-list">
+              <div class="vop-load-progress"></div>
+              <div class="vop-play-progress"></div>
+              <div class="vop-hover-progress"></div>
+            </div>
+          <div class="vop-scrubber-container"></div>
+        </div>
+        <div class="vop-controls">
+            <div class="vop-left-controls">
+              <button class="vop-button material-icons vop-play-button"></button>
+              <button class="vop-button material-icons vop-mute-button" title="mute"></button>
+              <div class="vop-volume-panel">
+                <div class="vop-volume-slider">
+                  <div class="vop-volume-slider-handle">
+                  </div>
+                </div>
+              </div>
+              <div class="vop-time-display"><span class="vop-time-text">00:00/00:00</span></div>
+            </div>
+            <div class="vop-right-controls">
+              <button class="vop-button material-icons vop-subtitles-button" title="subtitles">subtitles</button>
+              <button class="vop-button vop-settings-button material-icons" title="settings">settings</button>
+              <button class="vop-button material-icons vop-fullscreen-button">fullscreen</button>
+          </div>
+        </div>
+      </div>
+      <div class="vop-spinner">
+        <div class="vop-spinner-container">
+          <div class="vop-spinner-rotator">
+            <div class="vop-spinner-left">
+              <div class="vop-spinner-circle">
+              </div>
+            </div>
+            <div class="vop-spinner-right">
+              <div class="vop-spinner-circle">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vop-logo">
+        <a href="http://www.visualon.com" target="_Blank">
+          <img src="../common/img/logo.png"></img>
+        </a>
+      </div>
+      <div id="idAnalyticsOverlay" class="vop-analyticsoverlay-menu">
+        <div>
+            <span class="vop-analyticsoverlay-tag">Player Version:</span>
+            <span id="idAnalytics_playerVersion"></span>
+        </div>
+        <div>
+          <span class="vop-analyticsoverlay-tag">Startup Time:</span>
+          <span id="idAnalytics_startupTime"></span>
+        </div>
+        <div>
+          <span class="vop-analyticsoverlay-tag">Play Time:</span>
+          <span id="idAnalytics_playTime"></span>
+        </div>
+        <div>
+          <span class="vop-analyticsoverlay-tag">Type Live or VOD:</span>
+          <span id="idAnalytics_streamType"></span>
+        </div>
+        <div>
+          <span class="vop-analyticsoverlay-tag">Buffering Time:</span>
+          <span id="idAnalytics_bufferingTime"></span>
+        </div>
+        <div >
+          <span class="vop-analyticsoverlay-tag">Resolution:</span>
+          <span id="idAnalytics_resolution"></span>
+        </div>
+        <div >
+          <span class="vop-analyticsoverlay-tag">Bandwidth:</span>
+          <span id="idAnalytics_bandwidth"></span>
+        </div>
+        <div >
+          <span class="vop-analyticsoverlay-tag">Average Bandwidth:</span>
+          <span id="idAnalytics_aveBandwidth"></span>
+        </div>
+        <div >
+          <span class="vop-analyticsoverlay-tag">Playlist Bitrate:</span>
+          <span id="idAnalytics_playlistBitrate"></span>
+        </div>
+        <div>
+          <span class="vop-analyticsoverlay-tag">FrameRate:</span>
+          <span id="idAnalytics_streamingFps"></span>
+        </div>
+        <div >
+          <span class="vop-analyticsoverlay-tag">Adaptations:</span>
+          <span id="idAnalytics_adaptations"></span>
+        </div>
+        <div>
+          <span class="vop-analyticsoverlay-tag">Total Frames:</span>
+          <span id="idAnalytics_totalFrames"></span>
+        </div>
+        <div>
+          <span class="vop-analyticsoverlay-tag">Dropped Frames:</span>
+          <span id="idAnalytics_droppedFrames"></span>
+        </div>
+        <div>
+          <span class="vop-analyticsoverlay-tag">Download Time:</span>
+          <span id="idAnalytics_downloadTime"></span>
+        </div>
+        <div>
+          <span class="vop-analyticsoverlay-tag">Download Bytes:</span>
+          <span id="idAnalytics_downloadBytes"></span>
+        </div>
+        <div>
+          <span class="vop-analyticsoverlay-tag">Dropped Bytes:</span>
+          <span id="idAnalytics_droppedBytes"></span>
+        </div>
+        <div class="vop-url-div">
+          <span class="vop-analyticsoverlay-tag">Video URL:</span>
+          <span id="idAnalytics_videoLinkURL">
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
