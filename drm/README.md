@@ -64,4 +64,4 @@ Set media source and DRM information in sourceConfig(link to sourceConfig of API
       
 
 
-# [DRM Demo] (https://www.visualon.com/index.php/html5-player-drm-demo/)
+# [DRM Demo](https://www.visualon.com/index.php/html5-player-drm-demo/)
