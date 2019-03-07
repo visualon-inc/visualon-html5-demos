@@ -57,8 +57,7 @@ When it is all done, it should look like the following code.
 </html>
 ```
 ## Guide for configuring player and source
-User can initialize player by a configuration. See `@link module:Player~config`
-and open the media source with sourceConfig. See `@link module:Player~sourceConfig`
+User can initialize the player by a configuration and open the media source with sourceConfig. 
 
 For the sample code, user can modify "voDefaultConfig" and "voDefaultStream" in "SamplePlayer/sampleplayer/app/assets.js"
 to set own configuration and default stream. Also can add streams to "voAvailableStreams" in
