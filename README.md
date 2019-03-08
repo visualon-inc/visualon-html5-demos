@@ -117,7 +117,7 @@ by selecting "Enter Asset" from the drop-down menu of "stream" in the Demo.
 
 
 ## Technical support
-- Please click [here](/issues) for any technical support that you need. You can submit you issues on this page, our engineer will respond you queries shortly.
+- Please click [here](https://github.com/visualon-inc/visualon-html5-demos/issues) for any technical support that you need. You can submit you issues on this page, our engineer will respond you queries shortly.
 
 
 ## Documents
