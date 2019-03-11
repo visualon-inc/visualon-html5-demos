@@ -1,5 +1,5 @@
 # Federal Communications Commission (FCC) Closed Captions
-The VisualOn HTML5 Player complies with FCC rules for U.S. broadcast captioning, including synchronization and positioning.
+The VisualOn HTML5+ Player complies with FCC rules for U.S. broadcast captioning, including synchronization and positioning.
 
 
 
