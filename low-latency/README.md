@@ -1,5 +1,5 @@
 # Low Latency
-VisualOn html5 player provides a lowLatency mode to fit to the situation with high real-time demand. User can enable lowLatency mode by setting the lowLatencyMode as true in “ advanced” object of configuration for initializing the player.
+VisualOn HTML5+ player provides a lowLatency mode to fit to the situation with high real-time demand. User can enable lowLatency mode by setting the lowLatencyMode as true in “ advanced” object of configuration for initializing the player.
 
 # Example:
     var playerConfig = {
