@@ -1,14 +1,15 @@
 label {
-    font-family: FontAwesome;
-    font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
 }
 
+
 select {
-   font-family: FontAwesome;
+   font-family: Arial, Helvetica, sans-serif;
    font-size: 15px;
    color: #747474;
    width: 240px;
-   height: 34px;
+   height: 44px;
    overflow: hidden;
    background: no-repeat right #ddd;
    border: 1px solid #ccc;
@@ -24,34 +25,40 @@ button {
    vertical-align: bottom;
    background: no-repeat right #03a9f4;
    border: 1px solid #ccc;
+   border-radius: 8px;
+   outline: 0px;
 }
 
 h3 {
-   font-family: Averta, sans-serif;
+   font-family: Arial, Helvetica, sans-serif;
    font-size: 20px;
+}
+
+span {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .player {
 }
 
 .hlword {
-    color: #5f8341;
-    font-weight: bold;
-    background-color: #F0F0F0;
+  color: #0089FF;
+  font-weight: bold;
+  background-color: #FFFFFF;
 }
 
 .container {
-    width: 100%;
-    margin: auto;
+  width: 100%;
+  margin: auto;
 }
 
 .player-session {
-    width: 50%;
-    float: left;
+  width: 50%;
+  float: left;
 }
 
 .code-session {
-    background: #232323;
+  background: #232323;
 }
 .html5-video-player {
   position: relative;
@@ -190,7 +197,7 @@ h3 {
 }
 
 .vop-play-progress {
-  background-color: rgb(255,152,0);
+  background-color: rgb(56,157,255);
   transform: scaleX(0);
 }
 
@@ -213,7 +220,7 @@ h3 {
   border-radius:6.5px;
   top:-4px;
   left:-6.5px;
-  background-color: rgb(255,152,0);
+  background-color: rgb(56,157,255);
   transform: translateX(0px);
   pointer-events: none;
 }
@@ -810,3 +817,25 @@ h3 {
   min-width: 240px;
 }
 /* End fullscreen state*/
+
+/* Begin test labs */
+.vop-test-input {
+  width: 60%;
+  height: 40px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.vop-test-loadBtn {
+  width: 120px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  outline: none;
+}
+.vop-test-loadBtn:hover {
+  cursor: pointer;
+}
+/* End test labs */
