@@ -3,4 +3,4 @@ The VisualOn HTML5+ Player complies with FCC rules for U.S. broadcast captioning
 
 
 
-# [FCC Demo](https://www.visualon.com/index.php/html5-player-fcc-demo/).
+# [FCC Demo](https://www.visualon.com/index.php/html5demo/?demo=fcc).
