@@ -73,7 +73,7 @@ by selecting "Enter Asset" from the drop-down menu of "stream" in the Demo.
 
 - **Chromecast**: Cast video directly to your screen using Chromecast and the VisualOn HTML5+ Player. 
 - [Chromecast Developer Guide](/chromecast)
-- [Chromecast Demo](https://www.visualon.com/index.php/html5-player-chromecast-demo/)
+- [Chromecast Demo](https://www.visualon.com/index.php/html5demo/?demo=chromecast)
 
 - **DRM**: The VisualOn HTML5+ Player makes it easier to target the necessary DRM for a multi-DRM content object. 
 - [DRM Developer Guide](/drm) 
