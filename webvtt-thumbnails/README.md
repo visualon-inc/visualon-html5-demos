@@ -9,4 +9,4 @@ You can set the WebVTT thumbnail via the tracks in sourceConfig object
 You can use findNearestThumbnail(pos) to get a thumbniailInfo object of a specific media position.
 
 
-# [Thumbnail Demo](https://www.visualon.com/index.php/html5-player-thumbnail-demo/)
+# [Thumbnail Demo](https://www.visualon.com/index.php/html5demo/?demo=webvtt-thumbnails)
