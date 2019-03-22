@@ -87,9 +87,6 @@ by selecting "Enter Asset" from the drop-down menu of "stream" in the Demo.
 - [Low Latency Developer Guide](/low-latency)
 - [Low Latency Demo](https://www.visualon.com/index.php/html5demo/?demo=low-latency)
 
-- **AirPlay**: AirPlay allows wireless streaming and related metadata between devices of audio, video, and photos, as well as the sharing of screens. With a simple configuration of your app, you can deliver AirPlay functionality to your users. 
-- [AirPlay Reference code](/airplay-and-picture-in-picture)
-- [AirPlay Demo](https://www.visualon.com/index.php/html5demo/?demo=airplay)
 
 - **Thumbnail**: Hover over the timeline to see the Thumbnail feature of the VisualOn HTML5+ Player in action in the following demo page. 
 - [Thumbnail Developer guide](/webvtt-thumbnails)
@@ -114,6 +111,9 @@ by selecting "Enter Asset" from the drop-down menu of "stream" in the Demo.
 -  [FCC Closed Captions Reference Code](/fcc)
 -  [FCC Closed Captions Demo](https://www.visualon.com/index.php/html5demo/?demo=fcc)
 
+
+- **Custom Content Test**: Try your content with VisualOn HTML5+ Player.
+-  [Custom Content Test](https://www.visualon.com/index.php/html5demo/?demo=custom)
 
 
 ## Technical support
