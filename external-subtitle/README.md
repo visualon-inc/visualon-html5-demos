@@ -11,4 +11,4 @@ User can set external subtitle via setExternalSubtitle(subtitle) API. The extern
     
 
 
-# [External subtitles Demo](https://www.visualon.com/index.php/html5-player-external-subtitle-demo/)
+# [External subtitles Demo](https://www.visualon.com/index.php/html5demo/?demo=external-subtitle)
