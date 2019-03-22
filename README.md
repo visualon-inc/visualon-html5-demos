@@ -77,42 +77,42 @@ by selecting "Enter Asset" from the drop-down menu of "stream" in the Demo.
 
 - **DRM**: The VisualOn HTML5+ Player makes it easier to target the necessary DRM for a multi-DRM content object. 
 - [DRM Developer Guide](/drm) 
-- [DRM Demo](https://www.visualon.com/index.php/html5-player-drm-demo/)
+- [DRM Demo](https://www.visualon.com/index.php/html5demo/?demo=drm)
 
 -  **External Subtitle**： The VisualOn HTML5+ Player supports multiple types of external subtitles including SRT, TTML and WebVTT. 
 - [External Subtitles Developer Guide](/external-subtitle)
-- [External Subtitles Demo](https://www.visualon.com/index.php/html5-player-external-subtitle-demo/)
+- [External Subtitles Demo](https://www.visualon.com/index.php/html5demo/?demo=external-subtitle)
 
 - **Low Latency**： The VisualOn HTML5+ player provides a lowLatency mode for live streaming.   
 - [Low Latency Developer Guide](/low-latency)
-- [Low Latency Demo](https://www.visualon.com/index.php/html5-player-low-latency-demo2/)
+- [Low Latency Demo](https://www.visualon.com/index.php/html5demo/?demo=low-latency)
 
 - **AirPlay**: AirPlay allows wireless streaming and related metadata between devices of audio, video, and photos, as well as the sharing of screens. With a simple configuration of your app, you can deliver AirPlay functionality to your users. 
 - [AirPlay Reference code](/airplay-and-picture-in-picture)
-- [AirPlay Demo](https://www.visualon.com/index.php/html5-player-airplay-demo/)
+- [AirPlay Demo](https://www.visualon.com/index.php/html5demo/?demo=airplay)
 
 - **Thumbnail**: Hover over the timeline to see the Thumbnail feature of the VisualOn HTML5+ Player in action in the following demo page. 
 - [Thumbnail Developer guide](/webvtt-thumbnails)
-- [Demo Page](https://www.visualon.com/index.php/html5-player-thumbnail-demo/)
+- [Demo Page](https://www.visualon.com/index.php/html5demo/?demo=webvtt-thumbnails)
 
 
 - **Analytics Overlay** :VisualOn Analytics Overlay captures and demonstrates the real-time player KPIs with an onscreen overlay for the VisualOn HTML5+ player. 
 - [Analytics Overlay Reference Code](/analytics-overlay)
-- [Analytics Overlay Demo](https://www.visualon.com/index.php/html5-player-analytics-overlay-demo/)
+- [Analytics Overlay Demo](https://www.visualon.com/index.php/html5demo/?demo=analytics-overlay)
 
 - **Ad Insersion**: The VisualOn HTML5+ Player supports server side and client side ad insertion, as well as ad playback and tracking.
 - [Ad Insersion Reference Code](/ad-insertion)
-- [Ad Insersion Demo](https://www.visualon.com/index.php/html5-player-ads-demo/)
+- [Ad Insersion Demo](https://www.visualon.com/index.php/html5demo/?demo=a_d_s)
 
 - **AirPlay and Picture in Picture**: AirPlay allows wireless streaming and related metadata between devices of audio, video, and photos, as well as the sharing of screens. With a simple configuration of your app, you can deliver AirPlay functionality to your users. Picture-in-picture is the feature of the VisualOn HTML5+ Player to display one program/channel on the full TV screen while one or more other programs/channels are displayed in inset window(s).
 - [AirPlay and Picture in Picture Reference Code ](/airplay-and-picture-in-picture)
-- [Picture in Picture Demo](https://www.visualon.com/index.php/html5-player-airplay-and-picture-in-picture-demo/)
-- [AirPlay Demo](https://www.visualon.com/index.php/html5-player-airplay-demo/)
+- [Picture in Picture Demo](https://www.visualon.com/index.php/html5demo/?demo=picture-in-picture)
+- [AirPlay Demo](https://www.visualon.com/index.php/html5demo/?demo=airplay)
 
 
 - **FCC Closed Captions**: The VisualOn HTML5+ Player complies with FCC rules for U.S. broadcast captioning, including synchronization and positioning.
 -  [FCC Closed Captions Reference Code](/fcc)
--  [FCC Closed Captions Demo](https://www.visualon.com/index.php/html5-player-fcc-demo/)
+-  [FCC Closed Captions Demo](https://www.visualon.com/index.php/html5demo/?demo=fcc)
 
 
 
