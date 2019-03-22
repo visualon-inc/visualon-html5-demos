@@ -17,5 +17,5 @@ VisualOn HTML5+ player provides a lowLatency mode to fit to the situation with h
 
 Now lowLatency mode can only be used on chrome and safari.
 
-# Click to see [Demo](https://www.visualon.com/index.php/html5-player-low-latency-demo2/)
+# Click to see [Demo](https://www.visualon.com/index.php/html5demo/?demo=low-latency)
 
