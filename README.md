@@ -1,7 +1,7 @@
 # VisualOn HTML5+ Player Project Setup and Demos
 
 ## Get the evaluation SDK
-The VisualOn HTML5+ Player evaluation SDK is provided upon request. Please [click here](https://www.visualon.com/index.php/contact) to contact us to request an SDK or communicate directly with us.
+The VisualOn HTML5+ Player evaluation SDK is provided upon request. Please [**CLICK HERE**](https://www.visualon.com/index.php/contact) to contact us to request an SDK or communicate directly with us.
 
 ## Prerequisite
 Please refer to Tools/setuphttpserver/Win32/README.txt or Tools/setuphttpserver/MacOS/README.md to check how to setup an HTTP
