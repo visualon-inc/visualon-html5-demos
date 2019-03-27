@@ -98,8 +98,8 @@ by selecting "Enter Asset" from the drop-down menu of "stream" in the Demo.
 - [Analytics Overlay Demo](https://www.visualon.com/index.php/html5demo/?demo=analytics-overlay)
 
 - **Ad Insertion**: The VisualOn HTML5+ Player supports server side and client side ad insertion, as well as ad playback and tracking.
-- [Ad Insersion Reference Code](/ad-insertion)
-- [Ad Insersion Demo](https://www.visualon.com/index.php/html5demo/?demo=a_d_s)
+- [Ad Insertion Reference Code](/ad-insertion)
+- [Ad Insertion Demo](https://www.visualon.com/index.php/html5demo/?demo=a_d_s)
 
 - **AirPlay and Picture in Picture**: AirPlay allows wireless streaming and related metadata between devices of audio, video, and photos, as well as the sharing of screens. With a simple configuration of your app, you can deliver AirPlay functionality to your users. Picture-in-picture is the feature of the VisualOn HTML5+ Player to display one program/channel on the full TV screen while one or more other programs/channels are displayed in inset window(s).
 - [AirPlay and Picture in Picture Reference Code ](/airplay-and-picture-in-picture)
