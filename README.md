@@ -97,7 +97,7 @@ by selecting "Enter Asset" from the drop-down menu of "stream" in the Demo.
 - [Analytics Overlay Reference Code](/analytics-overlay)
 - [Analytics Overlay Demo](https://www.visualon.com/index.php/html5demo/?demo=analytics-overlay)
 
-- **Ad Insersion**: The VisualOn HTML5+ Player supports server side and client side ad insertion, as well as ad playback and tracking.
+- **Ad Insertion**: The VisualOn HTML5+ Player supports server side and client side ad insertion, as well as ad playback and tracking.
 - [Ad Insersion Reference Code](/ad-insertion)
 - [Ad Insersion Demo](https://www.visualon.com/index.php/html5demo/?demo=a_d_s)
 
