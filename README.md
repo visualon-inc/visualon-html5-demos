@@ -113,7 +113,7 @@ by selecting "Enter Asset" from the drop-down menu of "stream" in the Demo.
 
 
 ## Custom Content Test
-- Just click [here](https://www.visualon.com/index.php/html5demo/?demo=custom) to try your own content with our VisualOn HTML5+ Player.
+- Just [**CLICK HERE**] (https://www.visualon.com/index.php/html5demo/?demo=custom) to try your own content with our VisualOn HTML5+ Player.
 
 
 ## Technical support
