@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Stict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.0.4/iframeResizer.contentWindow.min.js"></script>
+
+  <title>VisualOn HTML5 Video360vr</title>
+  <link rel="stylesheet" href="../common/css/main.css"/>
+  <script src="../common/js/tool.js"></script>
+  <script src="../common/assets/assets.js"></script>
+  <script src="./js/main.js"></script>
+
+  <!-- player SDK & plugin -->
+  <!-- vo replacement2:start params:notAwsMarketPackage -->
+<script src="../../libs/voplayer-video360vr.min.js?n=1"></script>
+  <!-- vo replacement2:end -->
+<script src="../../libs/voplayer.min.js?n=1"></script>
+  <!-- player ui sdk -->
+<link href="../../libs/voplayer-ui.min.css?n=1" rel="stylesheet" />
+<script src="../../libs/voplayer-ui.min.js?n=1"></script>
+</head>
+
+<body>
+  <div>
+    <div style="max-width: 720px;">
+        <div>
+            <input id="idInputURL" type="text" placeholder="Manifest URL" value='https://d1w9xdakxie2rx.cloudfront.net/html5/CaminandesVR-360/Caminandes.m3u8' style="width:60%;margin-bottom: 15px;"></input>
+            <button id="idBtnLoad" style="width:15%;">Load</button>
+            <button id="idBtnStop" style="width:15%;">Stop</button>
+        </div>
+        <div>
+            <span style="margin-bottom: 3px;font-size: 12px">Stream:</span>
+            <select id="idSelectStreamType" style="width:30%;height:30px;margin-right: 5px"></select>
+            <span style="margin-bottom: 3px;font-size: 12px">Projection:</span>
+            <select id="idSelectVRPrjType" style="width:30%;height:30px;margin-bottom: 15px;"></select>
+        </div>
+    </div>
+    <div id="player-frame" class="vop-player-frame">
+      <div id="player-container"></div>
+    </div>
+  </div>
+</body>
+
+</html>
