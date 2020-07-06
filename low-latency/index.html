@@ -1,74 +1,46 @@
-<html>
-  <head>
-    <link rel="stylesheet" href="../common/css/main.css"/>
-    <link rel="stylesheet" href="./css/main.css"/>
-    <script src="../common/js/ResizeSensor.js"></script>
-    <script src="../common/js/jquery-1.10.2.min.js"></script>
-    <script src="../common/voplayer.min.js"></script>
-    <script src="./js/jquery-1.10.2.min.js"></script>
-    <script src="./js/main.js"></script>
-  </head>
-  <body>
-    <button onclick="onClickLoadStream()" class="loadbtn" style="display: inline-block">Start</button>
-    <div id="idShowWallClock" style="display: inline-block; vertical-align:bottom">
-      <span id="wallclock"></span>
-    </div>
-    <div>
-      <div class="player" style="display: inline-block;">
-        <h2>Low Latency Mode</h2>
-        <div class="html5-video-player">
-          <div id="idContainerLowlatency">
-            <div class="vop-logo">
-              <a href="http://www.visualon.com" target="_Blank">
-                <img src="./assets/logo.png"></img>
-              </a>
-            </div>
-            <div class="vop-spinner">
-              <div class="vop-spinner-container">
-                <div class="vop-spinner-rotator">
-                  <div class="vop-spinner-left">
-                    <div class="vop-spinner-circle">
-                    </div>
-                  </div>
-                  <div class="vop-spinner-right">
-                    <div class="vop-spinner-circle">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Stict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 
-      <div class="player" style="display: inline-block;">
-        <h2>Normal Mode</h2>
-        <div class="html5-video-player">
-          <div id="idContainerNormal">
-            <div class="vop-logo">
-            <a href="http://www.visualon.com" target="_Blank">
-              <img src="./assets/logo.png"></img>
-            </a>
-          </div>
-          <div class="vop-spinner">
-            <div class="vop-spinner-container">
-              <div class="vop-spinner-rotator">
-                <div class="vop-spinner-left">
-                  <div class="vop-spinner-circle">
-                  </div>
-                </div>
-                <div class="vop-spinner-right">
-                  <div class="vop-spinner-circle">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+<head>
+  <!-- viewport tag only valid to mobile browser. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.0.4/iframeResizer.contentWindow.min.js"></script>
+ 
+  <!-- player SDK & plugin -->
+<script src="../../libs/voplayer-analytics.min.js?n=1"></script>
+<script src="../../libs/voplayer.min.js?n=1"></script>
+  <!-- player ui sdk -->
+<link href="../../libs/voplayer-ui.min.css?n=1" rel="stylesheet" />
+<script src="../../libs/voplayer-ui.min.js?n=1"></script>
+
+  <script src="../common/js/tool.js"></script>
+  <script src="../common/assets/assets.js"></script>
+  <link rel="stylesheet" href="../common/css/main.css" />
+  <script src="./js/main.js"></script>
+</head>
+
+<body>
+  <button onclick="onClickLoadStream()" class="vop-labs-button loadbtn" style="display: inline-block; width: 60px">Start</button>
+  <div id="idShowWallClock" style="display: inline-block; vertical-align:bottom">
+    <span id="wallclock"></span>
+  </div>
+  <br />
+  <div>
+    <div style="display: inline-block;">
+      <h2>Low Latency Mode</h2>
+      <div id="lowlatency-player-frame" class="vop-lowlatency-player-frame">
+        <div id="player-container-lowlatency">
         </div>
       </div>
+    </div>
+    <div style="display: inline-block;">
+      <h2>Normal Mode</h2>
+      <div id="normal-player-frame" class="vop-lowlatency-player-frame">
+        <div id="player-container-normal">
+        </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
-
-

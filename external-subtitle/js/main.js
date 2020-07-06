@@ -1,29 +1,24 @@
-var externalSubtitleUI = Object.create(CommonUI);
+var playerContainer_;
+var player_ = null;
+var playerUI_ = null;
 
-externalSubtitleUI.replay = function() {
-  this.open(this.stream_);
-  this.loadSubtitle(this.subtitleInfo_);
+window.onload = function () {
+  playerContainer_ = document.getElementById('player-container');
+  // build player
+  player_ = new voPlayer.Player(playerContainer_);
+  player_.addPlugin(voPlayer.voAnalyticsPlugin);
+  player_.addPlugin(voPlayer.voSRTParserPlugin);
+  player_.addPlugin(voPlayer.voCaptionParserPlugin);
+  player_.addPlugin(voPlayer.voVTTParserPlugin);
+  player_.addPlugin(voPlayer.voTTMLParserPlugin);
+  player_.addPlugin(voPlayer.voFCCStylePlugin);
+  player_.addPlugin(voPlayer.voSubtitlesPlugin);
+  player_.init(common_config);
+
+  // attach ui engine
+  playerUI_ = new voPlayer.UIEngine(player_);
+  playerUI_.buildUI();
+
+  player_.open(External_Subtitle_stream);
+  player_.setExternalSubtitle(External_Subtitle_info);
 };
-
-externalSubtitleUI.loadSubtitle = function(subtitleInfo) {
-  if (subtitleInfo && subtitleInfo.uri !== '') {
-    this.subtitleInfo_ = subtitleInfo;
-    this.player_.setExternalSubtitle(subtitleInfo);
-  }
-}
-
-externalSubtitleUI.onload = function() {
-  this.initVariable();
-  this.initUI();
-  this.initUIEventListeners();
-  this.initPlayer(common_config);
-};
-
-window.onload = function() {
-  externalSubtitleUI.onload();
-
-  externalSubtitleUI.open(External_Subtitle_stream);
-  externalSubtitleUI.loadSubtitle(External_Subtitle_info);
-};
-
-window.onunload = function() {};

@@ -10,5 +10,4 @@ User can set external subtitle via setExternalSubtitle(subtitle) API. The extern
     player.setExternalSubtitle(externalSubtitle);
     
 
-
 # [External subtitles Demo](https://www.visualon.com/index.php/html5demo/?demo=external-subtitle)

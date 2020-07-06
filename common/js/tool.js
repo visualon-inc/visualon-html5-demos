@@ -119,3 +119,36 @@ UITools.removeClass = function(elements, cName) {
     elements.className = (elements.className.replace(new RegExp("(\\s|^)" + cName + "(\\s|$)"), " ")).trim();
   }
 };
+
+UITools.isMobile = function() {
+  var u = navigator.userAgent;
+  var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+  var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+  return isAndroid || isiOS;
+}
+
+UITools.isIOS = function() {
+  var u = navigator.userAgent;
+  var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+
+  return isIOS;
+}
+
+function loadCss(file){
+  var head = document.getElementsByTagName('head').item(0);
+  css = document.createElement('link');
+  css.href = file;
+  css.rel = 'stylesheet';
+  css.type = 'text/css';
+  head.appendChild(css);
+}
+
+UITools.updateUIonMobile = function() {
+  if (UITools.isMobile()) {
+    loadCss('../common/css/mobile.css');
+  } else {
+    loadCss('../common/css/pc.css');
+  }
+}
+
+UITools.updateUIonMobile();

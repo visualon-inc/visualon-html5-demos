@@ -1,0 +1,18 @@
+.vop-player-frame {
+  position: relative;
+  width: 720px;
+  height: 405px;
+  background: black;
+}
+
+.vop-lowlatency-player-frame {
+  position: relative;
+  width: 480px;
+  height: 270px;
+  background: black;
+}
+
+.vop-fullscreen-analyticsoverlay {
+  font-size: x-large;
+  min-width: 240px;
+}

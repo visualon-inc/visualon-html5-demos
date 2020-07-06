@@ -1,26 +1,7 @@
-var context = {};
-
-var vopLowlatencyContainer;
-var playerLowlatency;
-
-var vopNormalContainer;
-var playerNormal;
-
-var config = {
-  playback: {
-    autoPlay: true
-  },
-  analytics: {
-    enable: true,
-    cuid: 'VISUALON_CUSTOM_DEMO' // customer specified user ID for Analytics Agent.
-  },
-  logs: {
-    logToConsole: false
-  }
-};
 var streamLowlatency = {
   links: [{
-    uri: 'https://vm2.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd'
+    uri: 'https://vm2.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd',
+    type: 'dash'
   }],
   advanced: {
     lowLatencyMode: true
@@ -28,63 +9,39 @@ var streamLowlatency = {
 };
 var streamNormal = {
   links: [{
-    uri: 'https://vm2.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd'
+    uri: 'https://vm2.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd',
+    type: 'dash'
   }],
   advanced: {
     lowLatencyMode: false
   }
 };
 
-function onLowlatencyPlayWaiting() {
-  if (!$("#idContainerLowlatency").hasClass("vop-buffering")) {
-    $("#idContainerLowlatency").addClass("vop-buffering");
-  }
+var playerLowlatency = null;
+var playerNormal = null;
+
+function initPlayerLowlatency() {
+  var playerContainer = document.getElementById('player-container-lowlatency');
+  // build player
+  playerLowlatency = new voPlayer.Player(playerContainer);
+  playerLowlatency.addPlugin(voPlayer.voAnalyticsPlugin);
+  playerLowlatency.init(common_config);
+
+  // attach ui engine
+  var playerUI = new voPlayer.UIEngine(playerLowlatency);
+  playerUI.buildUI();
 }
 
-function onLowlatencyPlayPlaying() {
-  if ($("#idContainerLowlatency").hasClass("vop-buffering")) {
-    $("#idContainerLowlatency").removeClass("vop-buffering");
-  }
-}
+function initPlayerNormal() {
+  var playerContainer = document.getElementById('player-container-normal');
+  // build player
+  playerNormal = new voPlayer.Player(playerContainer);
+  playerNormal.addPlugin(voPlayer.voAnalyticsPlugin);
+  playerNormal.init(common_config);
 
-function initPlayerLowlatency(container) {
-  vopLowlatencyContainer = document.getElementById(container);
-  playerLowlatency = new voPlayer.Player(vopLowlatencyContainer);
-
-  playerLowlatency.init(config);
-  playerLowlatency.addEventListener(voPlayer.events.VO_OSMP_CB_PLAY_WAITING, onLowlatencyPlayWaiting, context);
-  playerLowlatency.addEventListener(voPlayer.events.VO_OSMP_CB_PLAY_PLAYING, onLowlatencyPlayPlaying, context);
-}
-
-function onNormalPlayWaiting() {
-  if (!$("#idContainerLowlatency").hasClass("vop-buffering")) {
-    $("#idContainerLowlatency").addClass("vop-buffering");
-  }
-}
-
-function onNormalPlayPlaying() {
-  if ($("#idContainerNormal").hasClass("vop-buffering")) {
-    $("#idContainerNormal").removeClass("vop-buffering");
-  }
-}
-
-function initPlayerNormal(container) {
-  vopNormalContainer = document.getElementById(container);
-  playerNormal = new voPlayer.Player(vopNormalContainer);
-
-  playerNormal.init(config);
-  playerNormal.addEventListener(voPlayer.events.VO_OSMP_CB_PLAY_WAITING, onNormalPlayWaiting, context);
-  playerNormal.addEventListener(voPlayer.events.VO_OSMP_CB_PLAY_PLAYING, onNormalPlayPlaying, context);
-}
-
-function onClickLoadStream() {
-  playerLowlatency.open(streamLowlatency);
-  playerNormal.open(streamNormal);
-
-  $("#idContainerLowlatency").addClass("vop-buffering");
-  $("#idContainerNormal").addClass("vop-buffering");
-
-  window.setInterval(updateWallClockUI, 100);
+  // attach ui engine
+  var playerUI = new voPlayer.UIEngine(playerNormal);
+  playerUI.buildUI();
 }
 
 function precision(n, leftAlign, length) {
@@ -106,26 +63,18 @@ function updateWallClockUI() {
     ":" + precision(now.getMilliseconds(), true) + "</strong>";
 }
 
-var resizePlayer = function() {
-  var v = document.querySelector('.player');
-  var dstWidth = 0;
-  var dstHeight = 0;
-  if (v.clientWidth > 480) {
-    dstWidth = 480;
-    dstHeight = dstWidth * 0.5625;
-  } else {
-    dstWidth = v.clientWidth;
-    dstHeight = dstWidth * 0.5625;
-  }
-  this.vopLowlatencyContainer.style.width = dstWidth.toString() + 'px';
-  this.vopLowlatencyContainer.style.height = dstHeight.toString() + 'px';
-  this.vopNormalContainer.style.width = dstWidth.toString() + 'px';
-  this.vopNormalContainer.style.height = dstHeight.toString() + 'px';
+function onClickLoadStream() {
+  playerLowlatency.open(streamLowlatency);
+  playerNormal.open(streamNormal);
+
+  window.setInterval(updateWallClockUI, 100);
 }
 
-window.onload = function() {
-  initPlayerLowlatency("idContainerLowlatency");
-  initPlayerNormal("idContainerNormal");
-  var v = document.querySelector('.player');
-  new ResizeSensor(v, resizePlayer.bind(this));
+window.onload = function () {
+  initPlayerLowlatency();
+  initPlayerNormal();
 };
+
+
+
+

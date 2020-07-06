@@ -1,27 +1,31 @@
-var basicUI = Object.create(CommonUI);
+var playerContainer_;
+var player_ = null;
+var playerUI_ = null;
 
-basicUI.onload = function() {
-  this.initVariable();
-  this.initUI();
-  this.initUIEventListeners();
-  this.initPlayer(common_config);
-  checkMSE()
-};
-
-basicUI.onProtocolChange = function() {
+function onProtocolChange() {
   var proc = document.getElementById('protocol').value;
   if (proc === 'HLS')
-    this.open(HLS_Clear_stream);
+    player_.open(HLS_Clear_stream);
   else if (supportDASH()) {
-    this.open(DASH_Clear_stream);
+    player_.open(DASH_Clear_stream);
   } else {
     alert(proc + ' is not supported');
   }
 };
 
-window.onload = function() {
-  basicUI.onload();
-  basicUI.open(HLS_Clear_stream);
-};
+window.onload = function () {
+  checkMSE()
 
-window.onunload = function() {};
+  //
+  playerContainer_ = document.getElementById('player-container');
+  // build player
+  player_ = new voPlayer.Player(playerContainer_);
+  player_.addPlugin(voPlayer.voAnalyticsPlugin);
+  player_.init(common_config);
+
+  // attach ui engine
+  playerUI_ = new voPlayer.UIEngine(player_);
+  playerUI_.buildUI();
+
+  onProtocolChange();
+};

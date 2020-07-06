@@ -1,44 +1,18 @@
-var chromecastUI = Object.create(CommonUI);
+var playerContainer_;
+var player_ = null;
+var playerUI_ = null;
 
-chromecastUI.initVariable = function() {
-  CommonUI.initVariable.call(this);
-  this.vopRemoteDisplayContainer = null;
-  this.vopRemoteDisplayText = null;
+window.onload = function () {
+  playerContainer_ = document.getElementById('player-container');
+  // build player
+  player_ = new voPlayer.Player(playerContainer_);
+  player_.addPlugin(voPlayer.voAnalyticsPlugin);
+  player_.addPlugin(voPlayer.voCastSenderPlugin);
+  player_.init(Chromecast_config);
+
+  // attach ui engine
+  playerUI_ = new voPlayer.UIEngine(player_);
+  playerUI_.buildUI();
+
+  player_.open(Chromecast_stream);
 };
-
-chromecastUI.initUI = function() {
-  CommonUI.initUI.call(this);
-
-  this.vopRemoteDisplayContainer = document.querySelector('.vop-remote-display-container');
-  this.vopRemoteDisplayText = document.querySelector('.vop-remote-display-status-text');
-};
-
-chromecastUI.initPlayer = function(config) {
-  CommonUI.initPlayer.call(this, config);
-
-  this.player_.addEventListener(voPlayer.events.VO_OSMP_CB_CAST_CONNECTED, this.onCastConnected.bind(this), this.context);
-  this.player_.addEventListener(voPlayer.events.VO_OSMP_CB_CAST_DISCONNECTED, this.onCastDisconnected.bind(this), this.context);
-};
-
-chromecastUI.onCastConnected = function(e) {
-  this.vopRemoteDisplayText.innerText = 'Playing on ' + e.deviceName;
-  this.vopRemoteDisplayContainer.style.display = 'block';
-};
-
-chromecastUI.onCastDisconnected = function() {
-  this.vopRemoteDisplayContainer.style.display = 'none';
-};
-
-chromecastUI.onload = function() {
-  this.initVariable();
-  this.initUI();
-  this.initUIEventListeners();
-  this.initPlayer(Chromecast_config);
-};
-
-window.onload = function() {
-  chromecastUI.onload();
-  chromecastUI.open(Chromecast_stream);
-};
-
-window.onunload = function() {};

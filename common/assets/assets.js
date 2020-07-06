@@ -2,13 +2,16 @@
 var HLS_LINK = 'https://d1w9xdakxie2rx.cloudfront.net/html5/hls/playlist.m3u8';
 var DASH_LINK = 'https://d1w9xdakxie2rx.cloudfront.net/html5/dash/voweb_dash.mpd';
 var common_config = {
+  width: '100%',
+  height: '100%',
   playback: {
     autoPlay: true
   },
   analytics: [{
     type: 'server',
     options: {
-      cuid: 'visualon' // customer specified user ID for Analytics Agent
+      cuid: 'VISUALON_CUSTOM_DEMO'
+
     }
   }],
   logs: {
@@ -18,18 +21,21 @@ var common_config = {
 
 var HLS_Clear_stream = {
   links: [{
-    uri: HLS_LINK
+    uri: HLS_LINK,
+    type: 'hls'
   }]
 };
 var DASH_Clear_stream = {
   links: [{
-    uri: DASH_LINK
+    uri: DASH_LINK,
+    type: 'dash'
   }]
 };
 
 var DRM_stream_wv = {
   links: [{
     uri: 'https://storage.googleapis.com/wvmedia/cenc/h264/tears/tears_sd.mpd',
+    type: 'dash',
     drm: {
       widevine: {
         laUrl: 'https://proxy.uat.widevine.com/proxy'
@@ -39,7 +45,8 @@ var DRM_stream_wv = {
 };
 var DRM_stream_pr = {
   links: [{
-    uri: 'https://profficialsite.origin.mediaservices.windows.net/c51358ea-9a5e-4322-8951-897d640fdfd7/tearsofsteel_4k.ism/manifest(format=mpd-time-csf)'
+    uri: 'https://profficialsite.origin.mediaservices.windows.net/c51358ea-9a5e-4322-8951-897d640fdfd7/tearsofsteel_4k.ism/manifest(format=mpd-time-csf)',
+    type: 'dash',
   }]
 };
 
@@ -64,33 +71,37 @@ ads_config.advertising = {
 
 var ads_stream = {
   links: [{
-    uri: HLS_LINK
+    uri: HLS_LINK,
+    type: 'hls'
   }]
 };
 
 // Titlie: airplay-and-pip assets
 var Airplay_Pip_stream = {
   links: [{
-    uri: HLS_LINK
+    uri: HLS_LINK,
+    type: 'hls'
   }]
 };
 
 // Title: chromecast assets
 var Chromecast_config = JSON.parse(JSON.stringify(common_config));
 Chromecast_config.cast = {
-  receiverAppId: 'B5BCD208' //VisualOn default customer receiver
+  receiverAppId: 'FF4B0BBE' // VisualOn WebSite Demo customer receiver
 };
 
 var Chromecast_stream = {
   links: [{
-    uri: DASH_LINK
+    uri: DASH_LINK,
+    type: 'dash'
   }]
 };
 
 // Title: External subtitle assets
 var External_Subtitle_stream = {
   links: [{
-    uri: DASH_LINK
+    uri: DASH_LINK,
+    type: 'dash'
   }]
 };
 
@@ -113,7 +124,8 @@ var Low_latency_stream = {
 // Title: Webvtt-Thumbnail assets
 var Webvtt_Thumbnail_stream = {
   links: [{
-    uri: HLS_LINK
+    uri: HLS_LINK,
+    type: 'hls'
   }],
   tracks: [{
     uri: 'https://d1w9xdakxie2rx.cloudfront.net/html5/thumbnails/thumbnails.vtt',
@@ -123,7 +135,8 @@ var Webvtt_Thumbnail_stream = {
 
 var fcc_stream = {
   links: [{
-    uri: 'https://vm2.dashif.org/dash/vod/testpic_2s/cea608.mpd'
+    uri: 'https://vm2.dashif.org/dash/vod/testpic_2s/cea608.mpd',
+    type: 'dash'
   }]
 };
 
@@ -131,7 +144,8 @@ var fcc_stream = {
 // lowlatench comparsion
 var Lowlatency_Comparsion_Lowlatency_Stream = {
   links: [{
-    uri: 'https://vm2.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd'
+    uri: 'https://vm2.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd',
+    type: 'dash'
   }],
   advanced: {
     lowLatencyMode: true
@@ -139,7 +153,8 @@ var Lowlatency_Comparsion_Lowlatency_Stream = {
 };
 var Lowlatency_Comparsion_Normal_Stream = {
   links: [{
-    uri: 'https://vm2.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd'
+    uri: 'https://vm2.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd',
+    type: 'dash'
   }],
   advanced: {
     lowLatencyMode: false

@@ -1,4 +1,7 @@
-var analyticsOverlayUI = Object.create(CommonUI);
+var playerContainer_;
+var player_ = null;
+var playerContext_ = {};
+var playerUI_ = null;
 
 var isEnableAnalyticsOverlay = true;
 var analyticsInfo;
@@ -24,8 +27,7 @@ var idAnalytics_downloadBytes = null;
 var idAnalytics_droppedBytes = null;
 var idAnalytics_videoLinkURL = null;
 
-analyticsOverlayUI.initUI = function() {
-  CommonUI.initUI.call(analyticsOverlayUI);
+function initUI() {
   idAnalyticsOverlay = document.getElementById('idAnalyticsOverlay');
   idAnalytics_playerVersion = document.getElementById('idAnalytics_playerVersion');
   idAnalytics_startupTime = document.getElementById('idAnalytics_startupTime');
@@ -47,49 +49,31 @@ analyticsOverlayUI.initUI = function() {
   idAnalyticsOverlay.style.display = 'block';
 };
 
-analyticsOverlayUI.onOpenFinished = function() {
-  CommonUI.onOpenFinished.call(analyticsOverlayUI);
-
+function onPlayerOpenFinished() {
   if (isEnableAnalyticsOverlay) {
     if (nIntervId) {
       clearInterval(nIntervId);
     }
-    nIntervId = setInterval(analyticsOverlayUI.updateAnaylicsInfo.bind(analyticsOverlayUI), 3000);
+    nIntervId = setInterval(updateAnaylicsInfo, 3000);
   }
 };
 
-analyticsOverlayUI.onFullScreenChange = function() {
-  if (isFullscreen()) {
-    if (!UITools.hasClass(this.vopPlayer, 'vop-fullscreen')) {
-      UITools.addClass(this.vopPlayer, 'vop-fullscreen');
-    }
+function onFullscreenChanged() {
+  if (!idAnalyticsOverlay)
+    return;
+  var flagIsFullscreen = player_.isFullscreen();
+
+  if (flagIsFullscreen) {
+    idAnalyticsOverlay.classList.add("vop-fullscreen-analyticsoverlay");
+    idAnalyticsOverlay.classList.remove("vop-normal-analyticsoverlay");
   } else {
-    if (UITools.hasClass(this.vopPlayer, 'vop-fullscreen')) {
-      UITools.removeClass(this.vopPlayer, 'vop-fullscreen');
-    }
+    idAnalyticsOverlay.classList.remove("vop-fullscreen-analyticsoverlay");
+    idAnalyticsOverlay.classList.add("vop-normal-analyticsoverlay");
   }
-};
+}
 
-analyticsOverlayUI.initFullscreenChangeListener = function() {
-  this.onFullScreenChange = this.onFullScreenChange.bind(this);
-  // fullscreen listener
-  document.addEventListener("fullscreenchange", this.onFullScreenChange);
-  document.addEventListener("mozfullscreenchange", this.onFullScreenChange);
-  document.addEventListener("webkitfullscreenchange", this.onFullScreenChange);
-  document.addEventListener("msfullscreenchange", this.onFullScreenChange);
-  document.addEventListener("MSFullscreenChange", this.onFullScreenChange);
-};
 
-analyticsOverlayUI.onload = function() {
-  this.initVariable();
-  this.initUI();
-  this.initUIEventListeners();
-  this.initPlayer(common_config);
-  this.initFullscreenChangeListener();
-  checkMSE()
-};
-
-analyticsOverlayUI.setAnalyticsTrackInfo = function() {
+function setAnalyticsTrackInfo() {
   if (!isEnableAnalyticsOverlay || !analyticsInfo) {
     return;
   }
@@ -148,18 +132,32 @@ analyticsOverlayUI.setAnalyticsTrackInfo = function() {
   }
 };
 
-analyticsOverlayUI.updateAnaylicsInfo = function() {
-  analyticsInfo = this.player_.getAnalyticsInfo();
+function updateAnaylicsInfo() {
+  analyticsInfo = player_.getAnalyticsInfo();
   if (!analyticsInfo) {
     return;
   }
 
-  analyticsOverlayUI.setAnalyticsTrackInfo();
+  setAnalyticsTrackInfo();
 };
 
-window.onload = function() {
-  analyticsOverlayUI.onload();
-  analyticsOverlayUI.open(DASH_Clear_stream);
-};
+function initPlayer() {
+  playerContainer_ = document.getElementById('player-container');
+  // build player
+  player_ = new voPlayer.Player(playerContainer_);
+  player_.addPlugin(voPlayer.voAnalyticsPlugin);
+  player_.init(common_config);
+  player_.addEventListener(voPlayer.events.VO_OSMP_SRC_CB_OPEN_FINISHED, onPlayerOpenFinished, playerContext_);
+  player_.addEventListener(voPlayer.events.VO_OSMP_FULLSCREEN_CHANGE, onFullscreenChanged, playerContext_);
 
-window.onunload = function() {};
+  // attach ui engine
+  playerUI_ = new voPlayer.UIEngine(player_);
+  playerUI_.buildUI();
+
+  player_.open(DASH_Clear_stream);
+}
+
+window.onload = function () {
+  initUI();
+  initPlayer();
+};

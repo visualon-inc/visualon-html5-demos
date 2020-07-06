@@ -270,9 +270,18 @@ CommonUI.initUIEventListeners = function() {
   var v = document.querySelector('.player');
   new ResizeSensor(v, CommonUI.resizePlayer.bind(this));
   CommonUI.resizePlayer.call(this);
+
+  window.addEventListener("orientationchange", CommonUI.resizePlayer);
 };
 
 CommonUI.resizePlayer = function() {
+  //for safari on iphone, the player will be shown larger than screen
+  var vp = document.querySelector('.html5-video-player');
+  if(vp.clientWidth > window.screen.width) {
+      vp.style.width = '100%';
+      vp.style.height = '100%';
+  }
+
   var v = document.querySelector('.player');
   var dstWidth = 0;
   var dstHeight = 0;
@@ -392,7 +401,8 @@ CommonUI.initPlayer = function(config) {
   this.player_.addEventListener(voPlayer.events.VO_OSMP_CB_PLAY_PAUSED, this.onPlayPaused.bind(this), this.context);
   this.player_.addEventListener(voPlayer.events.VO_OSMP_CB_PLAY_WAITING, this.onPlayWaiting.bind(this), this.context);
   this.player_.addEventListener(voPlayer.events.VO_OSMP_CB_PLAY_PLAYING, this.onPlayPlaying.bind(this), this.context);
-  this.player_.addEventListener(voPlayer.events.VO_OSMP_CB_PLAY_TIME_UPDATED, this.onPlayTimeUpdated.bind(this), this.context);
+  //this.player_.addEventListener(voPlayer.events.VO_OSMP_CB_PLAY_TIME_UPDATED, this.onPlayTimeUpdated.bind(this), this.context);
+  this.timeUpdate = setInterval(this.onPlayTimeUpdated.bind(this), 1000);
   this.player_.addEventListener(voPlayer.events.VO_OSMP_CB_SEEK_START, this.onSeekStart.bind(this), this.context);
   this.player_.addEventListener(voPlayer.events.VO_OSMP_CB_SEEK_COMPLETE, this.onSeekComplete.bind(this), this.context);
 
@@ -723,8 +733,6 @@ CommonUI.updateProgressBarUI = function() {
     return;
   }
 
-  var paused = this.player_.isPaused();
-  var ended = this.player_.isEnded();
   var streamInfo = this.getStreamInfo();
 
   if (streamInfo.type === 'vod' && (isNaN(streamInfo.position) || isNaN(streamInfo.duration))) {
@@ -1022,8 +1030,8 @@ CommonUI.onOpenFinished = function() {
   this.settingMenuContext.qualityList = [];
 
   var qualityLevels = this.player_.getQualityLevels();
-  printLog('quality levels: ' + qualityLevels.length, LOG_DEBUG);
-  if (qualityLevels.length > 0) {
+  //printLog('quality levels: ' + qualityLevels.length, LOG_DEBUG);
+  if (qualityLevels && qualityLevels.length > 0) {
     var currQuality = this.player_.getCurrentQualityLevel();
     var tmpQualitys = [];
     for (var i = 0; i < qualityLevels.length; ++i) {
@@ -1068,8 +1076,8 @@ CommonUI.onOpenFinished = function() {
   this.settingMenuContext.audioTrackList = [];
 
   var audioTracks = this.player_.getAudioTracks();
-  printLog('audio tracks: ' + audioTracks.length, LOG_DEBUG);
-  if (audioTracks.length > 0) {
+  //printLog('audio tracks: ' + audioTracks.length, LOG_DEBUG);
+  if (audioTracks && audioTracks.length > 0) {
     var currAudioTrack = this.player_.getCurrentAudioTrack();
     audioTracks.forEach(function(track) {
       var lang = '';
@@ -1191,7 +1199,7 @@ CommonUI.onProgramChanged = function(e) {
 
   this.subtitlesMenuContext.subtitleTracks = [];
   var sTracks = this.player_.getSubtitleTracks();
-  if (sTracks.length > 0) {
+  if (sTracks && sTracks.length > 0) {
     for (var i = 0; i < sTracks.length; i++) {
       var sTrack = sTracks[i];
       printLog('found subtitle, id: ' + sTrack.id + ', lang: ' + sTrack.lang, LOG_DEBUG);

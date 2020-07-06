@@ -1,84 +1,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Stict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
+  <!-- viewport tag only valid to mobile browser. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <!-- jQuery lib -->
-  <script src="../common/js/jquery-1.10.2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.0.4/iframeResizer.contentWindow.min.js"></script>
 
-  <!-- ResizeSensor lib -->
-  <script src="../common/js/ResizeSensor.js"></script>
-  <script src="../common/js/tool.js"></script>
+  <!-- player SDK & plugin -->
+<script src="../../libs/voplayer-analytics.min.js?n=1"></script>
+<script src="../../libs/voplayer-captionParser.min.js?n=1"></script>
+<script src="../../libs/voplayer-srtParser.min.js?n=1"></script>
+<script src="../../libs/voplayer-vttParser.min.js?n=1"></script>
+<script src="../../libs/voplayer-ttmlParser.min.js?n=1"></script>
+<script src="../../libs/voplayer-fccStyle.min.js?n=1"></script>
+<script src="../../libs/voplayer-subtitles.min.js?n=1"></script>
+<script src="../../libs/voplayer.min.js?n=1"></script>
+  <!-- player ui sdk -->
+<link href="../../libs/voplayer-ui.min.css?n=1" rel="stylesheet" />
+<script src="../../libs/voplayer-ui.min.js?n=1"></script>
 
-  <link rel="stylesheet" href="../common/css/main.css"/>
-  <link rel="stylesheet" href="../common/css/material-icons.css">
-  <script src="../common/voplayer.min.js"></script>
   <script src="../common/assets/assets.js"></script>
-  <script src="../common/js/main.js"></script>
+  <script src="../common/js/tool.js"></script>
+  <link rel="stylesheet" href="../common/css/main.css"/>
   <script src="./js/main.js"></script>
 </head>
 <body>
-  <div class="player">
-    <div id="player-container" class="html5-video-player">
-      <div class="vop-tooltip">
-          <div class="vop-tooltip-bg"></div>
-          <div class="vop-tooltip-text-wrapper">
-            <span class="vop-tooltip-text">00:00</span>
-          </div>
-      </div>
-      <div class="vop-popup vop-settings-menu">
-        <div class="vop-panel">
-          <div class="vop-panel-menu"></div>
-        </div>
-      </div>
-      <div class="vop-gradient-bottom"></div>
-      <div class="vop-control-bar">
-        <div class="vop-progress-bar">
-          <div class="vop-progress-list">
-              <div class="vop-load-progress"></div>
-              <div class="vop-play-progress"></div>
-              <div class="vop-hover-progress"></div>
-            </div>
-          <div class="vop-scrubber-container"></div>
-        </div>
-        <div class="vop-controls">
-            <div class="vop-left-controls">
-              <button class="vop-button material-icons vop-play-button"></button>
-              <button class="vop-button material-icons vop-mute-button" title="mute"></button>
-              <div class="vop-volume-panel">
-                <div class="vop-volume-slider">
-                  <div class="vop-volume-slider-handle">
-                  </div>
-                </div>
-              </div>
-              <div class="vop-time-display"><span class="vop-time-text">00:00/00:00</span></div>
-            </div>
-            <div class="vop-right-controls">
-              <button class="vop-button material-icons vop-subtitles-button" title="subtitles">subtitles</button>
-              <button class="vop-button material-icons vop-settings-button" title="settings">settings</button>
-              <button class="vop-button material-icons vop-fullscreen-button">fullscreen</button>
-          </div>
-        </div>
-      </div>
-      <div class="vop-spinner">
-        <div class="vop-spinner-container">
-          <div class="vop-spinner-rotator">
-            <div class="vop-spinner-left">
-              <div class="vop-spinner-circle">
-              </div>
-            </div>
-            <div class="vop-spinner-right">
-              <div class="vop-spinner-circle">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vop-logo">
-        <a href="http://www.visualon.com" target="_Blank">
-          <img src="../common/img/logo.png"></img>
-        </a>
-      </div>
+  <div id="player-frame" class="vop-player-frame">
+    <div id="player-container">
     </div>
   </div>
+  <br/>
 </body>
 </html>
