@@ -3,9 +3,9 @@
 
 # Enable the plugin
 1. add plugin js file in html file:
-   `<script src="../../libs/voplayer-video360vr.min.js?n=1"></script>`
+   `<script src="../../libs/voplayer-vr.min.js?n=1"></script>`
 2. add plugin before init the player:```
-    player_.addPlugin(voPlayer.voVideo360vrPlugin);
+    player_.addPlugin(voPlayer.voVRPlugin);
     player_.init(common_config);```
 3. set the projection via the vr in sourceConfig object:```
     source: {

@@ -114,7 +114,7 @@ var External_Subtitle_info = {
 // Title: Lowlatency
 var Low_latency_stream = {
   links: [{
-    uri: 'https://vm2.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd'
+    uri: 'https://livesim.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd'
   }],
   advanced: {
     lowLatencyMode: true
@@ -135,7 +135,7 @@ var Webvtt_Thumbnail_stream = {
 
 var fcc_stream = {
   links: [{
-    uri: 'https://vm2.dashif.org/dash/vod/testpic_2s/cea608.mpd',
+    uri: 'https://livesim.dashif.org/dash/vod/testpic_2s/cea608.mpd',
     type: 'dash'
   }]
 };
@@ -144,7 +144,7 @@ var fcc_stream = {
 // lowlatench comparsion
 var Lowlatency_Comparsion_Lowlatency_Stream = {
   links: [{
-    uri: 'https://vm2.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd',
+    uri: 'https://livesim.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd',
     type: 'dash'
   }],
   advanced: {
@@ -153,7 +153,7 @@ var Lowlatency_Comparsion_Lowlatency_Stream = {
 };
 var Lowlatency_Comparsion_Normal_Stream = {
   links: [{
-    uri: 'https://vm2.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd',
+    uri: 'https://livesim.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd',
     type: 'dash'
   }],
   advanced: {

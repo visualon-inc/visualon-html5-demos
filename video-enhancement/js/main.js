@@ -16,7 +16,7 @@ sourceCfg_ = {
 playerContainer_ = document.getElementById('player-container');
 // build player
 player_ = new voPlayer.Player(playerContainer_);
-player_.addPlugin(voPlayer.voVideoEnhancementPlugin);
+player_.addPlugin(voPlayer.voVideoEnhancePlugin);
 player_.init(common_config);
 
 // attach ui engine
@@ -51,7 +51,7 @@ $('#split').change(function () {
         var cur = $(this);
         drags(cur.find('.handle'), cur, function(r) { 
           split_ratio = r
-          player_.setSplitRatio(split_ratio);
+          player_.VideoEnhance.setSplitRatio(split_ratio);
         });
       });
       spliterInited = true;
@@ -64,11 +64,11 @@ $('#split').change(function () {
       prev_split_ratio = split_ratio;
     split_ratio = 0;
   }
-  player_.setSplitRatio(split_ratio);
+  player_.VideoEnhance.setSplitRatio(split_ratio);
 }).trigger('change')
 
 $('#videoSelector').change(function () {
-  if (!player_.isVideoEnhanceSupported()) {
+  if (!player_.VideoEnhance.isVideoEnhanceSupported()) {
     alert("The browser does not support Video Enhancement.");
     return;
   }
@@ -78,7 +78,7 @@ $('#videoSelector').change(function () {
   sourceCfg_.links[0].type = $(this).find(':selected').data('type');
   player_.open(sourceCfg_);
   setTimeout(function(){
-    player_.setLowBacklightEnhanceLevel(level);
+    player_.VideoEnhance.setLowBacklightEnhanceLevel(level);
   },3000);
 }).trigger('change')
 
@@ -87,18 +87,18 @@ $("#modes input:radio").change(function () {
   switch (mode) {
     case 'enhance':
       $('#canvas').show()
-      player_.setLowBacklightEnhanceLevel(level);
+      player_.VideoEnhance.setLowBacklightEnhanceLevel(level);
       break;
     default:
       $('#canvas').hide()
-      player_.setLowBacklightEnhanceLevel(0);
+      player_.VideoEnhance.setLowBacklightEnhanceLevel(0);
       break;
   }
 })
 
 $("#speed input:radio").change(function () {
   speed = $(this).attr('id')
-  player_.setEnhanceSpeed(speed);
+  player_.VideoEnhance.setEnhanceSpeed(speed);
 })
 
 $('#video2').click(function (e) {
@@ -130,6 +130,9 @@ $('#video2').click(function (e) {
   if (newPaused) {
     player_.pause();
   } else {
-    player_.play();
+    let result = player_.play()
+    if (result && (typeof Promise !== 'undefined') && (result instanceof Promise)) {
+      result.then(function(){console.log('play successfully')}).catch(function(error){console.log(error)});
+    }
   }
 })

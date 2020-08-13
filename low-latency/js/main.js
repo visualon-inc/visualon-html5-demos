@@ -1,6 +1,6 @@
 var streamLowlatency = {
   links: [{
-    uri: 'https://vm2.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd',
+    uri: 'https://livesim.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd',
     type: 'dash'
   }],
   advanced: {
@@ -9,7 +9,7 @@ var streamLowlatency = {
 };
 var streamNormal = {
   links: [{
-    uri: 'https://vm2.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd',
+    uri: 'https://livesim.dashif.org/livesim-chunked/chunkdur_1/ato_7/testpic4_8s/Manifest300.mpd',
     type: 'dash'
   }],
   advanced: {

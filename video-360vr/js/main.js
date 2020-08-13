@@ -53,7 +53,7 @@ window.onload = function() {
     playerContainer_ = document.getElementById('player-container');
     // build player
     player_ = new voPlayer.Player(playerContainer_);
-    player_.addPlugin(voPlayer.voVideo360vrPlugin);
+    player_.addPlugin(voPlayer.voVRPlugin);
     player_.init(common_config);
 
     initUI();

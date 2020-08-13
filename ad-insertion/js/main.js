@@ -43,9 +43,9 @@ function onClickLoad() {
     alert("Please select ad type!");
     return;
   }
-
   adErrorText_.innerHTML = '';
   player_.close();
+  player_.uninit();
   player_.init(ads_config);
   player_.open(ads_stream);
 }
